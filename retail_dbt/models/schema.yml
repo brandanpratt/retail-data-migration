@@ -1,0 +1,58 @@
+version: 2
+
+models:
+
+  - name: stg_customers
+    description: "Cleaned customer staging model"
+
+    columns:
+
+      - name: customer_id
+        description: "Primary key for customers"
+
+        tests:
+          - unique
+          - not_null
+
+      - name: email
+        description: "Customer email address"
+
+        tests:
+          - not_null
+
+  - name: dim_customers
+    description: "Customer dimension table"
+
+    columns:
+
+      - name: customer_id
+
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_sales
+    description: "Fact table for sales transactions"
+
+    columns:
+
+      - name: order_id
+
+        tests:
+          - not_null
+
+      - name: customer_id
+
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+
+      - name: product_id
+
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: product_id

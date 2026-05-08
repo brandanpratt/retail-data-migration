@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Airflow
+airflow/logs/
+airflow/airflow.db
+
+# dbt
+target/
+dbt_packages/
+logs/
+
+# Environment files
+.env
+.env.*
+
+# Mac
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Secrets
+profiles.yml
+*.pem
+*.key
+
+# Data
+data/raw/*.csv
+
+# Snowflake
+snowflake_credentials.json
+
+# Terraform
+*.tfstate
+*.tfstate.backup
