@@ -86,7 +86,9 @@ services:
 
 
   jenkins:
-    image: jenkins/jenkins:lts
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.jenkins
 
     container_name: jenkins
 

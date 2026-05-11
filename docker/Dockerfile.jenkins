@@ -1,0 +1,17 @@
+FROM jenkins/jenkins:lts
+
+USER root
+
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip python3-venv
+
+RUN python3 -m venv /opt/jenkins_venv
+
+RUN /opt/jenkins_venv/bin/pip install --upgrade pip
+
+RUN /opt/jenkins_venv/bin/pip install --no-cache-dir \
+    dbt-snowflake
+
+ENV PATH="/opt/jenkins_venv/bin:$PATH"
+
+USER jenkins

@@ -20,6 +20,7 @@ pipeline {
             steps {
                 sh '''
                 cd retail_dbt
+                export DBT_PROFILES_DIR=$(pwd)
                 dbt test
                 '''
             }
