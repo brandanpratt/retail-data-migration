@@ -2,6 +2,15 @@ pipeline {
 
     agent any
 
+    environment {
+        SNOWFLAKE_ACCOUNT = credentials('SNOWFLAKE_ACCOUNT')
+        SNOWFLAKE_USER = credentials('SNOWFLAKE_USER')
+        SNOWFLAKE_PASSWORD = credentials('SNOWFLAKE_PASSWORD')
+        SNOWFLAKE_ROLE = credentials('SNOWFLAKE_ROLE')
+        SNOWFLAKE_DATABASE = credentials('SNOWFLAKE_DATABASE')
+        SNOWFLAKE_WAREHOUSE = credentials('SNOWFLAKE_WAREHOUSE')
+    }
+
     stages {
 
         stage('Install Dependencies') {
