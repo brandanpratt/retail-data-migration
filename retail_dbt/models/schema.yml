@@ -56,3 +56,8 @@ models:
               arguments:
                 to: ref('dim_products')
                 field: product_id
+
+      - name: payment_method
+        tests:
+          - accepted_values:
+              values: ['Cash', 'Card', 'Online']
