@@ -4,12 +4,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/brandanpratt/retail-data-migration'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 sh 'python3 -m pip install -r requirements.txt'
