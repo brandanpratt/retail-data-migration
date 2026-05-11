@@ -83,10 +83,24 @@ services:
       - "1433:1433"
     volumes:
       - sqlserver-data:/var/opt/mssql
+
+
+  jenkins:
+    image: jenkins/jenkins:lts
+
+    container_name: jenkins
+
+    ports:
+      - "8085:8080"
+      - "50000:50000"
+
+    volumes:
+      - jenkins_home:/var/jenkins_home
+
+    user: root
       
 volumes:
   postgres-db-volume:
   sqlserver-data:
-
-
+  jenkins_home:
   
